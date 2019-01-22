@@ -183,7 +183,7 @@ func fileExists(filename string) (file *os.File, exists bool, err error) {
 	if _, err = os.Stat(output); os.IsNotExist(err) {
 		return nil, false, nil
 	} else {
-		file, err := os.OpenFile(output, os.O_APPEND|os.O_WRONLY, os.ModeAppend)
+		file, err := os.OpenFile(filename, os.O_APPEND|os.O_WRONLY, os.ModeAppend)
 		return file, true, err
 	}
 }
@@ -198,7 +198,7 @@ func createFile(filename string) (outputFile *os.File, err error) {
 
 	defer file.Close()
 
-	outputFile, err = os.OpenFile(output, os.O_APPEND|os.O_WRONLY, os.ModeAppend)
+	outputFile, err = os.OpenFile(filename, os.O_APPEND|os.O_WRONLY, os.ModeAppend)
 
 	if err != nil {
 		return
