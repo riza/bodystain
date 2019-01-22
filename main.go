@@ -8,6 +8,7 @@ import (
 	"io"
 	"log"
 	"os"
+	"runtime"
 	"strings"
 	"sync"
 	"time"
@@ -41,6 +42,9 @@ func init() {
 }
 
 func main() {
+
+	numCPUs := runtime.NumCPU()
+	runtime.GOMAXPROCS(numCPUs)
 
 	flag.Parse()
 
@@ -88,6 +92,9 @@ func main() {
 				/* 	for _, err := range errs {
 					info(err.Error(), false)
 				} */
+
+				timeOutstr := fmt.Sprintf("Timeout: %s", url)
+				info(timeOutstr, false)
 
 			}
 
