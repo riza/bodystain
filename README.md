@@ -1,5 +1,6 @@
-# Bodystain
-## Key based bulk response checker
+Bodystain (Work in Progress)
+--
+Key based bulk response checker
 
 Usage 
 ----
